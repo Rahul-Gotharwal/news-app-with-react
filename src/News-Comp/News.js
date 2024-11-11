@@ -10,8 +10,8 @@ const News = (props) => {
   const updateNews = async () => {
     setLoading(true);
     try {
-      // const url = https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=a7ed937d7f2f477f88d60ed5e5bfef50&page=${page}&pageSize=${props.pageSize};
-      const url = `https://newsapi.org/v2/everything?q=${props.query}&apiKey=e87af74ef81f4ca0b308333deca54e6a&page=${page}&pageSize=${props.pageSize}`;
+      const url = `https://newsapi.org/v2/everything?q=${props.query}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+
       const data = await fetch(url);
       const parsedData = await data.json();
       setTotalResults(parsedData.totalResults);
@@ -82,7 +82,7 @@ const News = (props) => {
 News.defaultProps = {
   query: "latest",
   pageSize: 6,
-  apiKey: "your_api_key_here",
+  apiKey: "e87af74ef81f4ca0b308333deca54e6a",
 };
 
 export default News;
